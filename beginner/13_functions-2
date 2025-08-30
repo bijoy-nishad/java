@@ -1,0 +1,154 @@
+Functions 2
+Few things to know about functions
+When will a function end?
+When all the statements of that function are executed
+When we execute the return statement
+What happens when the function ends?
+We go back to where it was called from [the function call]
+Code1:
+
+Line1:    static boolean IsEven(int N){
+Line2:        if(N % 2 == 0){
+Line3:            return true;
+Line4:        }
+Line5:        System.out.println("Hey");
+Line6:        return false;
+Line7:    }
+Line8:    public static void main(String[] args){
+Line9:        System.out.println(IsEven(8);)
+Line10:   }
+Output
+
+true
+Explanation:
+
+Here, we are calling the function with N = 8 
+the condition N%2==0 gives true
+So, the if block gets executed and we execute Line 3.
+Line 3 helps us exit the function.
+And we come back to the function call at Line 9.
+Code2:
+
+Line1:    static void printHello(){
+Line2:        System.out.println("Hello Everyone");
+Line3:        System.out.println("Good Morning");
+Line4:    }
+Line5:    public static void main(String[] args){
+Line6:        printHello();
+Line7:        System.out.println("Bye");        
+Line8:    }
+Output
+
+Hello Everyone
+Good Morning
+Bye
+Explanation:
+
+Line 6 calls the printHello() function.
+So, we start executing from Line 1.
+Line 2 prints "Hello Everyone" in the output.
+Line 3 prints "Good Morning" in the output.
+Since there are no more statements to execute.
+The function ends and we come back to Line 6.
+With Line 7 we print "Bye" in the output.
+Rule 1 : When we create a function which has some mistake in it, we will get error irrespective of whether that function is being called or not.
+Code :
+
+static int check(int N){ 
+    System.out.println(N+10); 
+}		
+public static void main(String[] args){
+    int a = 10; 
+    System.out.println(a+10);
+}
+Output :
+
+error: missing return statement
+Explanation :
+
+In the check function, the return type is int. 
+But we are not returning an integer value from that function.
+Rule 2 : We can use return keyword when the return type is void without returning anything
+Code 1:
+
+Line1:    static void test2(){
+Line2:        System.out.println("Hi");
+Line3:        return;
+Line4:    }
+Line5:    public static void main(String args[]) {
+Line6:        test2();
+Line7:    }
+Output:
+
+Hi
+Explanation:
+
+Here, we are not returning anything with return keyword.
+Hence it can be used with void type as well.
+
+Code 2:
+
+Line1:    static void evenodd(int N){
+Line2:        if(N%2==0){
+Line3:            System.out.println("Even");
+Line4:            return;
+Line5:        }
+Line6:        System.out.println("Odd");
+Line7:    }
+Line8:    public static void main(String args[]) {
+Line9:        evenodd(14);
+Line10:       System.out.println("Done");
+Line11:   }
+Output:
+
+Even
+Done
+Explanation:
+
+Line 9 calls evenodd() function.
+The execution starts from Line 1, we recieve N = 14
+Line 2 condition is true. So, if block gets executed.
+Line 3 prints "Even" in the output.
+Line 4 executes and exits the function and comes back to Line 9.
+Then Line 10 prints Done in the output.
+Rule 3 : If function has a return type which is not void, then we need to return a value in all the cases.
+Protip : Assume all the conditions are false and check whether we have a return statement or not.
+
+Code :
+
+static int even(int N){ 
+    if(N%2==0){
+        return 2;
+    }
+}	
+public static void main(String args[]) {
+    System.out.println(even(27));
+}
+Output :
+
+error: missing return statement
+Explanation :
+
+Here, we are returning a value in the case when condition is true
+So, we are missing a return statement when condition is false
+Rule 4 : Having unreachable statements in the code gives us error
+The statements which never get executed are called unreachable statements.
+
+Code :
+
+Line1:    static int sum(int a,int b){
+Line2:        return a+b;  
+Line3:        System.out.println("Hey"); 
+Line4:    }	
+Line5:    public static void main(String args[]) {
+Line6:        System.out.println(sum(10, 5));
+Line7:    }
+Output :
+
+error: unreachable statement
+        System.out.println("Hey"); 
+        ^
+Explanation :
+
+With the help of Line 2, we exit the sum function
+Hence, Line 3 never gets executed making it a unreachable statement
