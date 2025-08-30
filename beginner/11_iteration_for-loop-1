@@ -1,0 +1,137 @@
+For Loops:
+Every for loop question can be done using a while loop. The difference lies in the syntax.
+
+For Loop provides a concise way of writing initialization, test condition, and increment/decrement statements in one line.
+
+Syntax:
+for(Initialization ; Condition ; Updation){
+    // Body of the Loop
+}
+
+
+Working of For Loop:
+Initialization expression is executed.
+
+Condition is checked.
+
+2.1 If it is true then control goes inside body of the loop.
+
+2.2. If the condition is false, Loop will be terminated.
+
+After execution update expression is carried out.
+
+Again flow go back to Step 2 and check the condition.
+If the condition evaluates to false, the loop is terminated else the body of the loop is again executed.
+
+This process continues until the condition becomes false. If the condition never becomes false, it is the case of an infinite loop.
+
+Example:
+
+Let's understand For loop using a simple example.
+
+Code1:
+
+Print all numbers from 1 to 5.
+
+for(int i = 1; i <= 5; i++) {
+    System.out.println(i);
+}
+Dry Run:
+
+i	i <= 5	println(i)	i++
+1	true	1	2
+2	true	2	3
+3	true	3	4
+4	true	4	5
+5	true	5	6
+6	false	-	-
+Output:
+
+[Success] Your code was executed successfully
+1
+2
+3
+4
+5
+Print all the numbers from N to 1.
+
+Code:
+
+Input: 10
+Scanner scn=new Scanner(System.in);	
+
+int N=scn.nextInt();
+
+for(int i= N;i>=1;i=i-1){
+System.out.print(i+" ");
+}
+Dry Run:
+
+i	i >= 1	print(i)	i=i-1
+10	true	10	9
+9	true	9	8
+8	true	8	7
+7	true	7	6
+6	true	6	5
+5	false	5	4
+4	true	4	3
+3	true	3	2
+2	false	2	1
+1	false	1	0
+0	false	-	-
+Output:
+
+[Success] Your code was executed successfully
+10 9 8 7 6 5 4 3 2 1 
+Infinite Loop:
+
+Code:
+
+for(int i=1;i <= 5;i--){
+    System.out.print(i + " ");
+}
+Dry Run:
+
+i	i<=5	print(i)	i - 1
+1	true	1	0
+0	true	0	-1
+-1	true	-1	-2
+-2	true	-2	-3
+Explanation:
+
+Since the condition is always true -> we will be stuck in an infinite for loop.
+Handling Multiple Test Cases:
+Code:
+
+int T = scn.nextInt();		
+for(int i = 1; i <= T; i++){
+int n = scn.nextInt();
+    //Do the task
+}
+Explanation:
+
+Take "T" test cases from the user, start loop from 1 
+and iterate till "i" value is <=T. 
+Every value of "i" take a input from the user and perform the required task. 
+Example:
+Read T numbers and for every number print the last digit.
+
+Input Format:
+1st Line: Contains T
+Followed by T lines containing the T numbers
+
+int T = scn.nextInt();
+for(int i = 0; i < T; i++) {
+    int n = scn.nextInt();
+    System.out.println(n%10);
+}
+Dry Run:
+T=5,
+
+i	i<5	int n = scn.nextInt();	println(n%10)
+0	true	123	3
+1	true	234	4
+2	true	67	7
+3	true	6	6
+4	true	409	9
+5	false	-	-
