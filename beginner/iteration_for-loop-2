@@ -1,0 +1,195 @@
+Loops 3:
+Break Statement:
+To stop the iterations of a loop before it actually completes, we use the break statement.
+
+Syntax:
+for(--; --; --) {
+    if (Condition) { // If condition is true, the loop ends. 
+        break; // Exit the loop
+    }
+}
+// Come here after the loop ends/exits
+Lets take an example to understand:
+Code:
+
+for(int i = 1; i <= 5; i++) {
+    System.out.println(i);
+    if (i == 3) {
+        break;
+    }
+}
+Output:
+
+[Success] Your code was executed successfully
+1
+2
+3
+Dry Run:
+
+i	i <= 5	println(i)	i==3	i++
+1	true	1	false	i=2
+2	true	2	false	i=3
+3	true	3	true	break[exit the loop]
+Code2:
+
+for(int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        break;
+    }
+    System.out.println(i);
+}
+Output:
+
+[Success] Your code was executed successfully
+1
+2
+Dry Run:
+
+i	i <= 5	i==3	println(i)	i++
+1	true	false	1	i=2
+2	true	false	2	i=3
+3	true	true	break[exit the loop]	
+Break Statement in case of Nested Loops:
+Code1:
+
+for (--; --; --) {
+    for (--; --; --) {
+        if(true){
+            break;
+        }   
+    }
+  //Line1    
+}
+//Line2
+Explanation:
+
+The break statement will only come out of loop which is present just outside the statement. 
+Here it will only able to exit from the inner for loop where it is present. 
+So we will come at Line1. 
+Code2:
+
+for (--; --; --) {
+    for (--; --; --) {  
+    }
+    if(true){
+        break;
+    }
+  //Line1    
+}
+//Line2
+Explanation:
+
+Here the break statement is present inside the outer for loop. 
+So it will stop the outer loop and we will come at Line2
+Example:
+Code:
+
+for (int i = 1; i < 4; i++) {
+      for (int j = 1; j < 7; j++) {
+        // when value of j becomes 4, this loop terminates
+        if (j == 4) {
+          break;
+        }
+        System.out.println(j + " ");
+      }
+      System.out.println();
+      System.out.println("End of inner loop"); 
+      // control comes here after breaking from inner loop
+    }
+System.out.println("End of outer loop");
+Output:
+
+[Success] Your code was executed successfully
+1 
+2 
+3 
+
+End of inner loop
+1 
+2 
+3 
+
+End of inner loop
+1 
+2 
+3 
+
+End of inner loop
+End of outer loop
+Dry run:
+
+When i=1
+j=1 → if-condition is false → 1 gets printed
+j=2 → if-condition is false → 2 gets printed
+j=3 → if-condition is false → 3 gets printed
+j=4 → if-condition is true since (j==4) → break statement terminates the execution of the inner loop, 
+and takes the control out of the loop, to the print statement of “End of inner loop”.
+
+When i=2,
+j=1 → if-condition is false → 1 gets printed
+j=2 → if-condition is false → 2 gets printed
+j=3 → if-condition is false → 3 gets printed
+j=4 → if-condition is true since (j==4) → break statement terminates the execution of the inner loop,
+and takes the control out of the loop, to the print statement of “End of inner loop”.
+
+when i=3, 
+j=1 → if-condition is false → 1 gets printed
+j=2 → if-condition is false → 2 gets printed
+j=3 → if-condition is false → 3 gets printed
+j=4 → if-condition is true since (j==4) → break statement terminates the execution of the inner loop,
+and takes the control out of the loop, to the print statement of “End of inner loop”.
+
+when i=4, 
+Outer loop is false, come out and print "End of outer loop". 
+Continue statement:
+The “continue” statement is generally used in loop blocks. Until the "continue" statement is encountered, all lines are executed, and after it, the program skips the rest lines of the loop and goes to the next iteration.
+
+Code1:
+
+for(int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        continue;
+    }
+    System.out.println(i);
+}
+Output:
+
+[Success] Your code was executed successfully
+1
+2
+4
+5
+Dry Run:
+
+i	i <= 5	i==3	println(i)	i++
+1	true	false	1	i=2
+2	true	false	2	i=3
+3	true	true	-	i=4
+4	true	false	4	i=5
+5	true	false	5	i=6
+6	false	exit from the loop		
+Code2:
+
+for(int i = 1; i <= 5; i++) {
+    System.out.println(i);
+    if (i == 3) {
+        continue;
+    }
+}
+Output:
+
+[Success] Your code was executed successfully
+1
+2
+3
+4
+5
+Dry Run:
+
+i	i <= 5	println(i)	i==3	i++
+1	true	1	false	i=2
+2	true	2	false	i=3
+3	true	3	true	i=4
+4	true	4	false	i=4
+5	true	5	false	i=4
+6	false	exit from the loop		
